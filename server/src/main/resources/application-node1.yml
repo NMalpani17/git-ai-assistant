@@ -1,0 +1,7 @@
+# Node 1 - Primary Node (HTTP: 8080, Akka: 2551)
+server:
+  port: 8080
+
+akka:
+  cluster:
+    port: 2551

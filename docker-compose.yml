@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  # PostgreSQL with pgvector extension
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: git-assistant-postgres
+    environment:
+      POSTGRES_DB: gitassistant
+      POSTGRES_USER: gituser
+      POSTGRES_PASSWORD: gitpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gituser -d gitassistant"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

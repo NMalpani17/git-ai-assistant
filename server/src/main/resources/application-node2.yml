@@ -1,0 +1,12 @@
+# Node 2 - Secondary Node (HTTP: 8081, Akka: 2552)
+server:
+  port: 8081
+
+akka:
+  cluster:
+    port: 2552
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none  # Don't modify schema from node2
